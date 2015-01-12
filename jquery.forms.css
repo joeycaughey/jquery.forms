@@ -1,0 +1,134 @@
+
+
+form, fieldset {
+	margin: 0;
+	padding: 0;
+}
+
+form fieldset {
+	border: none;
+}
+
+form fieldset legend {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+form fieldset {
+	margin-bottom: 20px;
+	padding-top: 10px;
+}
+
+form fieldset > legend {
+	font-size: 18px;
+	color: #fff;
+	font-weight: 100;
+	margin-bottom: 0px;
+}
+
+form fieldset:first-of-type > legend {
+	margin-top: 20px;
+}
+
+form > fieldset > fieldset {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+form > fieldset > fieldset > legend {
+	text-transform: uppercase;
+	font-size: 10px;
+	color: #ccc;
+}
+
+form fieldset > input[type=text],
+form fieldset > input[type=password],
+form fieldset > select,
+form fieldset > textarea {
+	font-family: Verdana;
+
+	width: 93%;
+
+	background: #eee;
+	color: #333;
+
+	border: none;
+	padding: 10px;
+
+	font-size: 14px;
+}
+
+form fieldset > textarea {
+	min-height: 150px;
+}
+
+form fieldset > button {
+	border: none;
+	background: #F60;
+	color: #fff;
+
+	padding: 15px;
+}
+
+form fieldset > button:hover {
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+form fieldset > button[rel=save] {
+	float: right;
+	background: #00cc00;
+}
+
+form fieldset > button[rel=cancel] {
+	background: #cc0000;
+}
+
+
+input[type=text][data-required],
+input[type=password][data-required],
+textarea[data-required] {
+	border-left: solid 10px #cc0000;
+}
+
+
+.percent-100,
+.percent-75,
+.percent-50,
+.percent-33,
+.percent-25,
+.percent-10 {
+	float: left !important;
+	margin-right: 2% !important;
+}
+
+
+.percent-100 {
+	width: 98% !important;
+}
+
+
+.percent-75 {
+	width: 74% !important;
+}
+
+.percent-50 {
+	width: 48% !important;
+}
+
+.percent-33 {
+	width: 31% !important;
+}
+
+.percent-25 {
+	width: 23% !important;
+}
+
+.percent-10 {
+	width: 10% !important;
+}
+.error {
+	color: #cc0000 !important;
+}
+
