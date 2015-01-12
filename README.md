@@ -7,6 +7,7 @@ jQuery Forms and Frontend Validation.  Validation any form element by adding a d
 USAGE AND INITIALIZATION
 ----------------------------------------------------
 
+```
 <form id="validation-form" method="POST">
   <input type="text" name="name" value="" data-required="valid_notnull" />
   <input type="text" name="email" value="" data-required="valid_email" />
@@ -27,3 +28,4 @@ $(document).ready(function(){
     });
 });
 </script>
+```
