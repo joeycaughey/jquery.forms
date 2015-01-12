@@ -14,7 +14,9 @@ function validate(form) {
         if (required) {
             elements[key].className.replace(/\berror\b/,'');
 
-            if (required === "true" || required === "valid_isnotnull") {
+            required = required.toLowerCase();
+
+            if (required === "true" || required === "valid_isnotnull"  || required === "valid_notnull") {
                 valid = validation.valid(value);
             } else {
                 valid = validation[required](value);
@@ -39,6 +41,9 @@ var validation = {
     valid: function(input) {
         return (input!=null && input !="");
     },
+    valid_notnull: function(input) {
+        return this.valid(input);
+    },
     valid_isnotnull: function(input) {
         return this.valid(input);
     },
@@ -56,8 +61,40 @@ var validation = {
         var digits = p.replace(/\D/g, "");
         return regex.test(phone);
     },
+    valid_username: function(){
+        return true;
+    },
     valid_password: function() {
-        
+        return true;
+    },
+    valid_password_confirm: function(){
+        return true;
+    },
+    valid_postal_code: function(input){
+        var regex = new RegExp(/^[a-zA-Z]\d[a-zA-Z]( )?\d[a-zA-Z]\d$/i);
+        if (regex.test(input))
+            return true;
+        else return false;
+    },
+    valid_location: function(input){
+        var self = this;
+
+        if (!$("INPUT[name=anywhere]").is(":checked")) {
+            if (
+                !self.valid_notnull($("INPUT[name=intersection]").val())
+            ) {
+                $("INPUT[name=intersection]").addClass("error");
+                return false;
+            }
+
+            if (
+                !self.valid_postal_code($("INPUT[name=zip_postal_code]").val())
+            ) {
+                $("INPUT[name=zip_postal_code]").addClass("error");
+                return false;
+            }
+        }
+        return true;
     },
     valid_captcha: function() {
         if (ReCaptcha.length === 1 && ReCaptcha.is_valid()) return true;
@@ -85,5 +122,28 @@ jQuery('form.standard input').keypress(function(e){
     if (e.which == 13 ) e.preventDefault();
 });
 
+function load_form_features() {
+	$("select[data-json]").each(function(){
+        var self = $(this);
+        var params = $(this).data("json").split("|");
+        var value_key = params[1];
+        var name_key = params[2];
+
+        $.getJSON("_assets/json/"+params[0], function(timezones) {
+            $.each(timezones, function(j, data) {
+                self.append(
+                    $("<option>").html(data[name_key])
+                        .val(data[value_key])
+                );
+            })
+        })
+    });
+}
+
 console.log("Loaded form validation.");
 
+var css = document.createElement("link")
+css.setAttribute("rel", "stylesheet")
+css.setAttribute("type", "text/css")
+css.setAttribute("href", "/_assets/jquery.forms/jquery.forms.css");
+document.getElementsByTagName("head")[0].appendChild(css);
