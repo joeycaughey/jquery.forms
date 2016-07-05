@@ -236,12 +236,14 @@ function load_form_features() {
     });
 }
 
+// Removes Form error class on form focus
 $(document).ready(function() {
     $("INPUT, TEXTAREA, SELECT").on("focus", function() {
         $(this).removeClass("error")
     });
 });
 
+// Disables Form submission on Enter
 $('form input').keypress(function(e) {
     if (e.which == 13) return false;
     if (e.which == 13) e.preventDefault();
