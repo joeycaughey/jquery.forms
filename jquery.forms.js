@@ -74,6 +74,9 @@ var Forms = {
         });
 
         return checked.contains(false) ? false : true;
+    },
+    add_validation(name, func) {
+        validation[name] = func;
     }
 }
 
@@ -195,41 +198,6 @@ var validation = {
             return true;
         }
         $("INPUT[name=terms_of_service]").parent().addClass("error");
-        return false;
-    },
-
-    valid_price: function(price) {
-        if (price > 5 && price < 999) {
-            return true;
-        }
-        return false;
-    },
-    valid_regularprice: function(price) {
-        if (!$("INPUT[name=regular_price]").closest("fieldset").is(":visible") || validation.valid_price(price)) {
-            return true;
-        }
-        return false;
-    },
-    valid_standardprice: function(price) {
-        if (!$("INPUT[name=bl_standard_price]").closest("fieldset").is(":visible") ||
-            (validation.valid_price(price) && price < ($("INPUT[name=regular_price]").val() * 0.95))
-        ) {
-            return true;
-        }
-        return false;
-    },
-    valid_promoprice: function(price) {
-        if (!$("INPUT[name=bl_promo_price]").closest("fieldset").is(":visible") ||
-            (validation.valid_price(price) && price < ($("INPUT[name=regular_price]").val() * 0.90))
-        ) {
-            return true;
-        }
-        return false;
-    },
-    valid_groupdealprice: function(price) {
-        if (!$("INPUT[name=bl_group_deal_price]").closest("fieldset").is(":visible") || validation.valid_price(price)) {
-            return true;
-        }
         return false;
     }
 }
