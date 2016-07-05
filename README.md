@@ -72,3 +72,34 @@ $(document).ready(function() {
 })
 
 ```
+
+
+----------------------------------------------------
+VALIDATION FUNCTIONS
+----------------------------------------------------
+There are already basic validation functions in the validation library.  
+
+```
+valid: 
+valid_notnull: 
+valid_isnotnull:
+valid_email:
+valid_phone:
+valid_username:
+valid_password:
+valid_password_confirm: 
+valid_new_password_confirm: 
+valid_postal_code: 
+valid_captcha: (ReCaptcha)
+valid_terms_of_service: 
+```
+
+Custom validation functions can also be created in other assets/pages that are specific to that asset or page.
+
+```
+Forms.add_validation(name, function(input) {
+   // Add your check on the input and return true/false 
+   // depending on the result of the validation
+});
+```
+
