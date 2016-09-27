@@ -62,7 +62,7 @@ POPULATING FORM DATA
 var form = $("#form-id-name");
 var variables = {
   "name": "Test User Name",
-  "email: "Test@User.Email",
+  "email": "Test@User.Email",
   "phone": {
     "mobile": "123-123-1234"
   }
