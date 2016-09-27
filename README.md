@@ -15,7 +15,7 @@ USAGE AND INITIALIZATION / GENERAL HTML
 ----------------------------------------------------
 Adding a data-required attribue and a validation function will set that fields in the form have valid data.  On a form check if there is an error an ".error" class will be added to the input/textarea/select tag.
 
-```
+```html
 <form id="form-id-name" method="POST">
   <input type="text" name="name" value="" data-required="valid_notnull" />
   <input type="text" name="email" value="" data-required="valid_email" />
@@ -28,7 +28,7 @@ Adding a data-required attribue and a validation function will set that fields i
 ----------------------------------------------------
 USAGE AND INITIALIZATION / GENERAL HTML
 ----------------------------------------------------
-```
+```javascript
 $(document).ready(function() {
     var form = $("#form-id-name");
     
@@ -58,7 +58,7 @@ If
 POPULATING FORM DATA
 ----------------------------------------------------
 
-```
+```javascript
 var form = $("#form-id-name");
 var variables = {
   "name": "Test User Name",
@@ -79,7 +79,7 @@ VALIDATION FUNCTIONS
 ----------------------------------------------------
 There are already basic validation functions in the validation library.  
 
-```
+```text
 valid: 
 valid_notnull: 
 valid_isnotnull:
@@ -96,7 +96,7 @@ valid_terms_of_service:
 
 Custom validation functions can also be created in other assets/pages that are specific to that asset or page.
 
-```
+```javascript
 Forms.add_validation(name, function(input) {
    // Add your check on the input and return true/false 
    // depending on the result of the validation
