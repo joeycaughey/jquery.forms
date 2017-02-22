@@ -49,8 +49,11 @@ $(document).ready(function() {
 ----------------------------------------------------
 USAGE AND INITIALIZATION / ERROR REPORTING
 ----------------------------------------------------
-```
-If 
+
+Errors are automatically pushed to 
+
+```html
+<div class="errors"></div>
 ```
 
 
