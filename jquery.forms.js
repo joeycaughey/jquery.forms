@@ -241,6 +241,10 @@ $(document).ready(function() {
     $("INPUT, TEXTAREA, SELECT").on("focus", function() {
         $(this).removeClass("error")
     });
+    
+    $( "form" ).submit(function( event ) {
+      if (!Forms.validates($(this)[0])) event.preventDefault();
+    });
 });
 
 // Disables Form submission on Enter
